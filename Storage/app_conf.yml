@@ -1,0 +1,9 @@
+version: 1 
+datastore: 
+  user: root 
+  password: 2705895a
+  hostname: localhost 
+  port: 3306 
+  db: events
+eventstore:
+  url: http://localhost:8100/stats
