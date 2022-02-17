@@ -2,7 +2,7 @@ version: 1
 datastore: 
   user: root 
   password: 2705895a
-  hostname: localhost 
+  hostname: acit3855-kafka.eastus2.cloudapp.azure.com
   port: 3306 
   db: events
 eventstore:

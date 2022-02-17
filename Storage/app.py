@@ -29,6 +29,8 @@ DB_SESSION = sessionmaker(bind=DB_ENGINE)
 
 logger = logging.getLogger('basicLogger')
 
+logger.info('Connecting to DB. Hostname: %s, Port number: %d' % (app_config['datastore']['hostname'], app_config['datastore']['port']))
+
 def store_stock_number(body):
     """ Receives a stock info"""
 
