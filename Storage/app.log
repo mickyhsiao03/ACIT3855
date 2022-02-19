@@ -7847,3 +7847,6 @@
 2022-02-15 16:03:03,667 - basicLogger - INFO - Query for date ranges after 2022-02-15 16:02:58.000000 returns 0 results
 2022-02-15 16:03:08,656 - basicLogger - INFO - Query for stock number info after 2022-02-15 16:03:03.000000 returns 0 results
 2022-02-15 16:03:08,669 - basicLogger - INFO - Query for date ranges after 2022-02-15 16:03:03.000000 returns 0 results
+2022-02-19 14:15:41,874 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.eastus2.cloudapp.azure.com, Port number: 3306
+2022-02-19 14:15:41,901 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.eastus2.cloudapp.azure.com, Port number: 3306
+2022-02-19 14:15:57,171 - basicLogger - DEBUG - Stored event stockNumber request with a trace id of: 2e1d561b-3b32-491c-be71-591c3bc23314

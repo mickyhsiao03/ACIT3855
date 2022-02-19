@@ -1,0 +1,9 @@
+version: 1 
+eventstore1: 
+  url: http://acit3855-kafka.eastus2.cloudapp.azure.com:8090/stockNumber
+eventstore2: 
+  url: http://acit3855-kafka.eastus2.cloudapp.azure.com:8090/dateRange
+events: 
+  hostname: acit3855-kafka.eastus2.cloudapp.azure.com
+  port: 9092 
+  topic: events

@@ -1,0 +1,117 @@
+---
+openapi: 3.0.0
+info:
+  title: Stock Prices API
+  description: This API receives input from front end website where users input the stock number
+  contact:
+    email: mhsiao6@my.bcit.ca
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: /
+tags:
+- name: investors
+  description: Operations available to any investor
+paths:
+  /stockNumber:
+    post:
+      tags:
+      - investors
+      summary: input a stock number
+      description: Readies the stock number to be sent to 3rd party API to request for historic stock prices if stock number is valid
+      operationId: app.getStockNum
+      requestBody:
+        description: Stock Number to add
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/stockNumber'
+      responses:
+        "200":
+          description: Stock Number confirmed valid
+        "400":
+          description: Unknown Stock Number
+  /dateRange:
+    post:
+      tags:
+      - investors
+      summary: input a date range
+      description: save time frame specified
+      operationId: app.getTimeFrame
+      requestBody:
+        description: Time frame to add
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dateRange'
+      responses:
+        "201":
+          description: time frame recorded
+        "400":
+          description: invalid/ unavailable time frame
+components:
+  schemas:
+    stockNumber:
+      required:
+      - investor_ID
+      - price_Date
+      - stock_Name
+      - stock_Number
+      - stock_Price
+      - trace_id
+      type: object
+      properties:
+        investor_ID:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        stock_Number:
+          type: string
+          example: AAPL
+        stock_Name:
+          type: string
+          example: Apple Inc
+        price_Date:
+          type: string
+          format: date-time
+          example: "2020-08-29T09:12:33.001Z"
+        stock_Price:
+          type: number
+          example: 200
+        trace_id:
+          type: string
+          example: ""
+    dateRange:
+      required:
+      - day
+      - investor_ID
+      - month
+      - time
+      - year
+      - trace_id
+      properties:
+        investor_ID:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        year:
+          type: string
+          format: year
+          example: "2020"
+        month:
+          type: string
+          format: month
+          example: Jan
+        day:
+          type: number
+          example: 25
+        time:
+          type: string
+          format: time
+          example: "12:20:00"
+        trace_id:
+          type: string
+          example: ""
+        
