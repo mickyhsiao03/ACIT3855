@@ -1,59 +1,33 @@
 ---
 openapi: 3.0.0
 info:
-  title: Stock Prices API
+  title: Audit API
   description: This API receives input from front end website where users input the stock number
+  version: 1.0.0
   contact:
     email: mhsiao6@my.bcit.ca
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: 1.0.0
-servers:
-- url: /
-tags:
-- name: investors
-  description: Operations available to any investor
 paths:
   /stockNumber:
-  #   post:
-  #     tags:
-  #     - investors
-  #     summary: input a stock number
-  #     description: Readies the stock number to be sent to 3rd party API to request for historic stock prices if stock number is valid
-  #     operationId: app.getStockNum
-  #     requestBody:
-  #       description: Stock Number to add
-  #       content:
-  #         application/json:
-  #           schema:
-  #             $ref: '#/components/schemas/stockNumber'
-  #     responses:
-  #       "200":
-  #         description: Stock Number confirmed valid
-  #       "400":
-  #         description: Unknown Stock Number
     get: 
       tags: 
         - investors 
       summary: gets new stock number infos 
-      operationId: app.get_stock_number
-      description: Gets stock number infos added after a timestamp 
+      operationId: app.get_stock_number_Q
+      description: Gets stock number infos from history
       parameters: 
-        - name: timestamp 
+        - name: index
           in: query 
-          description: Limits the number of items on a page 
+          description: gets the info at the index in the event store
           schema: 
-            type: string 
-            format: date-time 
-            example: 2016-08-29T09:12:33.001Z 
+            type: integer
+            example: 3
       responses: 
         '200': 
-          description: Successfully returned a list of stock number infos
+          description: Successfully returned a stock number infos
           content: 
             application/json: 
               schema: 
-                type: array 
+                type: object 
                 items: 
                   $ref: '#/components/schemas/stockNumber' 
         '400': 
@@ -65,49 +39,49 @@ paths:
                 properties: 
                   message: 
                     type: string
+        '404': 
+          description: Not Found 
+          content: 
+            application/json: 
+              schema: 
+                type: object 
+                properties: 
+                  message: 
+                    type: string
   /dateRange:
-  #   post:
-  #     tags:
-  #     - investors
-  #     summary: input a date range
-  #     description: save time frame specified
-  #     operationId: app.getTimeFrame
-  #     requestBody:
-  #       description: Time frame to add
-  #       content:
-  #         application/json:
-  #           schema:
-  #             $ref: '#/components/schemas/dateRange'
-  #     responses:
-  #       "201":
-  #         description: time frame recorded
-  #       "400":
-  #         description: invalid/ unavailable time frame
     get: 
       tags: 
         - investors 
       summary: gets new date range 
-      operationId: app.get_date_range
-      description: Gets a time frame added after a timestamp 
+      operationId: app.get_date_range_Q
+      description: Gets a time frame from history
       parameters: 
-        - name: timestamp 
+        - name: index
           in: query 
-          description: Limits the number of items on a page 
+          description: gets the info at the index in the event store 
           schema: 
-            type: string 
-            format: date-time 
-            example: 2016-08-29T09:12:33.001Z 
+            type: integer
+            example: 3
       responses: 
         '200': 
-          description: Successfully returned a list of date ranges
+          description: Successfully returned a date ranges
           content: 
             application/json: 
               schema: 
-                type: array 
+                type: object
                 items: 
                   $ref: '#/components/schemas/dateRange' 
         '400': 
           description: Invalid request 
+          content: 
+            application/json: 
+              schema: 
+                type: object 
+                properties: 
+                  message: 
+                    type: string
+        '404': 
+          description: Not Found 
           content: 
             application/json: 
               schema: 

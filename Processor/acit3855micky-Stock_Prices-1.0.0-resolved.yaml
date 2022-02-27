@@ -1,0 +1,70 @@
+---
+openapi: 3.0.0
+info:
+  title: Get Stats API
+  description: This API receives input from front end website where users input the stock number
+  contact:
+    email: mhsiao6@my.bcit.ca
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: /
+tags:
+- name: investors
+  description: Operations available to any investor
+paths:
+  /stats: 
+    get: 
+      summary: Gets the event stats 
+      operationId: app.get_stats
+      description: Gets top stock price processsed statistics 
+      responses: 
+        '200': 
+          description: Successfully returned a list of top stock prices
+          content: 
+            application/json: 
+              schema: 
+                type: object 
+                items: 
+                  $ref: '#/components/schemas/ReadingStats' 
+        '400': 
+          description: Invalid request 
+          content: 
+            application/json: 
+              schema: 
+                type: object 
+                properties: 
+                  message: 
+                    type: string
+components:
+  schemas:
+    ReadingStats: 
+      required: 
+      - num_stock
+      - num_dRange
+      - top_stock_price
+      - top_stock_number
+      - top_stock_name
+      - last_updated   
+      properties: 
+        num_stock: 
+          type: integer 
+          example: 50000 
+        num_dRange: 
+          type: integer 
+          example: 40000
+        top_stock_price: 
+          type: integer 
+          example: 30000 
+        top_stock_number: 
+          type: string 
+          example: APPL2 
+        top_stock_name: 
+          type: string 
+          example: Apple Inc 2
+        last_updated:
+          type: string
+          example: '2022-02-12 16:35:17.839066'
+        

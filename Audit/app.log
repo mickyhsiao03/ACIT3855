@@ -1,0 +1,125 @@
+2022-02-19 16:54:50,557 - basicLogger - INFO - Retrieving BP at index 3
+2022-02-19 16:54:52,297 - basicLogger - ERROR - Could not find BP at index 3
+2022-02-19 16:57:18,335 - basicLogger - INFO - Retrieving BP at index 3
+2022-02-19 16:57:20,014 - basicLogger - ERROR - Could not find BP at index 3
+2022-02-19 16:57:40,372 - basicLogger - INFO - Retrieving BP at index 3
+2022-02-19 16:57:42,117 - basicLogger - ERROR - Could not find BP at index 3
+2022-02-19 16:58:22,798 - basicLogger - INFO - Retrieving stock info at index 2
+2022-02-19 16:58:24,448 - basicLogger - ERROR - Could not find BP at index 2
+2022-02-19 16:58:57,807 - basicLogger - INFO - Retrieving stock info at index 3
+2022-02-19 16:58:59,546 - basicLogger - ERROR - Could not find BP at index 3
+2022-02-19 17:00:51,822 - basicLogger - INFO - Retrieving stock info at index 3
+2022-02-19 17:00:53,513 - basicLogger - ERROR - Could not find BP at index 3
+2022-02-19 17:00:59,357 - basicLogger - INFO - Retrieving stock info at index 0
+2022-02-19 17:01:01,020 - basicLogger - ERROR - Could not find BP at index 0
+2022-02-19 17:04:37,901 - basicLogger - INFO - Retrieving stock info at index 1
+2022-02-19 17:04:39,831 - basicLogger - ERROR - Could not find BP at index 1
+2022-02-19 17:05:55,080 - basicLogger - INFO - Retrieving stock info at index 200
+2022-02-19 17:05:56,922 - basicLogger - ERROR - Could not find BP at index 200
+2022-02-19 17:06:14,903 - basicLogger - INFO - Retrieving stock info at index 200
+2022-02-19 17:06:16,561 - basicLogger - ERROR - Could not find BP at index 200
+2022-02-19 17:07:50,818 - basicLogger - INFO - Retrieving stock info at index 200
+2022-02-19 17:07:51,522 - basicLogger - ERROR - No more messages found
+2022-02-19 17:07:51,525 - basicLogger - ERROR - Could not find BP at index 200
+2022-02-19 17:08:42,058 - basicLogger - INFO - Retrieving stock info at index 200
+2022-02-19 17:09:45,176 - basicLogger - INFO - Retrieving stock info at index 200
+2022-02-19 17:09:45,821 - basicLogger - ERROR - No more messages found
+2022-02-19 17:09:45,821 - basicLogger - ERROR - Could not find BP at index 200
+2022-02-19 17:10:21,751 - basicLogger - INFO - Retrieving stock info at index 200
+2022-02-19 17:10:22,558 - basicLogger - ERROR - No more messages found
+2022-02-19 17:10:22,558 - basicLogger - ERROR - Could not find BP at index 200
+2022-02-19 17:11:03,420 - basicLogger - INFO - Retrieving stock info at index 200
+2022-02-19 17:11:05,181 - basicLogger - ERROR - Could not find BP at index 200
+2022-02-19 17:11:19,931 - basicLogger - INFO - Retrieving stock info at index 200
+2022-02-19 17:11:21,824 - basicLogger - ERROR - Could not find BP at index 200
+2022-02-19 17:12:07,257 - basicLogger - INFO - Retrieving stock info at index 200
+2022-02-19 17:12:09,045 - basicLogger - ERROR - Could not find BP at index 200
+2022-02-19 17:12:28,851 - basicLogger - INFO - Retrieving stock info at index 1030
+2022-02-19 17:12:30,672 - basicLogger - ERROR - Could not find BP at index 1030
+2022-02-19 17:13:32,446 - basicLogger - INFO - Retrieving stock info at index 1030
+2022-02-19 17:13:33,084 - basicLogger - ERROR - No more messages found
+2022-02-19 17:13:33,087 - basicLogger - ERROR - Could not find BP at index 1030
+2022-02-19 17:14:38,314 - basicLogger - INFO - Retrieving stock info at index 1030
+2022-02-19 17:14:40,050 - basicLogger - ERROR - No more messages found
+2022-02-19 17:14:40,050 - basicLogger - ERROR - Could not find BP at index 1030
+2022-02-19 17:15:12,795 - basicLogger - INFO - Retrieving stock info at index 1030
+2022-02-19 17:15:14,529 - basicLogger - ERROR - No more messages found
+2022-02-19 17:15:14,530 - basicLogger - ERROR - Could not find BP at index 1030
+2022-02-19 17:15:25,658 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:15:27,315 - basicLogger - ERROR - No more messages found
+2022-02-19 17:15:27,316 - basicLogger - ERROR - Could not find BP at index 1000
+2022-02-19 17:15:46,527 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:15:48,190 - basicLogger - ERROR - No more messages found
+2022-02-19 17:15:48,190 - basicLogger - ERROR - Could not find BP at index 1000
+2022-02-19 17:17:21,253 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:17:58,962 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:18:00,741 - basicLogger - ERROR - No more messages found
+2022-02-19 17:18:00,741 - basicLogger - ERROR - Could not find BP at index 1000
+2022-02-19 17:18:25,119 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:18:26,958 - basicLogger - ERROR - No more messages found
+2022-02-19 17:18:26,958 - basicLogger - ERROR - Could not find BP at index 1000
+2022-02-19 17:18:44,910 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:18:45,556 - basicLogger - ERROR - No more messages found
+2022-02-19 17:18:45,557 - basicLogger - ERROR - Could not find BP at index 1000
+2022-02-19 17:18:59,808 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:19:00,516 - basicLogger - ERROR - No more messages found
+2022-02-19 17:19:00,516 - basicLogger - ERROR - Could not find BP at index 1000
+2022-02-19 17:20:08,374 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:20:09,007 - basicLogger - ERROR - No more messages found
+2022-02-19 17:20:09,007 - basicLogger - ERROR - Could not find BP at index 1000
+2022-02-19 17:20:16,174 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:20:17,928 - basicLogger - ERROR - No more messages found
+2022-02-19 17:20:17,928 - basicLogger - ERROR - Could not find BP at index 1000
+2022-02-19 17:20:36,252 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:20:37,910 - basicLogger - ERROR - No more messages found
+2022-02-19 17:20:37,910 - basicLogger - ERROR - Could not find BP at index 1000
+2022-02-19 17:29:15,659 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:29:16,296 - basicLogger - ERROR - No more messages found
+2022-02-19 17:29:16,298 - basicLogger - ERROR - Could not find BP at index 1000
+2022-02-19 17:29:29,903 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:30:10,686 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:30:31,905 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:30:44,217 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:31:16,785 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:34:30,168 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:37:02,831 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:37:44,806 - basicLogger - INFO - Retrieving stock info at index 1030
+2022-02-19 17:40:28,974 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:43:08,906 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 17:45:14,688 - basicLogger - INFO - Retrieving date range at index 50
+2022-02-19 17:51:49,994 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 18:27:48,919 - basicLogger - INFO - Retrieving date range at index 50
+2022-02-19 18:28:04,935 - basicLogger - INFO - Retrieving date range at index 1000
+2022-02-19 18:29:45,915 - basicLogger - INFO - Retrieving date range at index 1000
+2022-02-19 18:29:47,586 - basicLogger - INFO - returned paylaod: {'type': 'dateRange', 'datetime': '2022-02-19T16:02:53', 'payload': {'day': 29, 'investor_ID': '70eae314-0746-4a6f-9b70-056b681d2bc1', 'month': 'Jan', 'time': '04:02', 'year': '2022', 'trace_id': 'fa487cf3-95ac-4b99-b7a0-b41cb525faea'}}
+2022-02-19 18:30:23,845 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 18:30:25,582 - basicLogger - INFO - returned paylod: {'type': 'stockNumber', 'datetime': '2022-02-19T16:02:44', 'payload': {'investor_ID': '69c45b3a-7bf2-4d17-9fe0-3ce42d7f6115', 'price_Date': '2020-08-29T09:12:33.001Z', 'stock_Name': 'BZOQZZOZ', 'stock_Number': 'DD2AA', 'stock_Price': 37670.0, 'trace_id': 'e01e02a0-1889-479a-a15c-560f7bece927'}}
+2022-02-19 18:31:20,633 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 18:31:22,300 - basicLogger - INFO - returned paylod: e01e02a0-1889-479a-a15c-560f7bece927
+2022-02-19 18:32:13,569 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 18:32:15,232 - basicLogger - INFO - returned paylod with trace_id: e01e02a0-1889-479a-a15c-560f7bece927
+2022-02-19 18:32:21,007 - basicLogger - INFO - Retrieving date range at index 1000
+2022-02-19 18:32:22,660 - basicLogger - INFO - returned paylaod with trace_id: fa487cf3-95ac-4b99-b7a0-b41cb525faea
+2022-02-19 18:32:52,548 - basicLogger - INFO - Retrieving date range at index 1000
+2022-02-19 18:32:54,291 - basicLogger - INFO - returned payload with trace_id: fa487cf3-95ac-4b99-b7a0-b41cb525faea
+2022-02-19 18:32:59,420 - basicLogger - INFO - Retrieving stock info at index 1000
+2022-02-19 18:33:01,144 - basicLogger - INFO - returned payload with trace_id: e01e02a0-1889-479a-a15c-560f7bece927
+2022-02-19 18:34:35,045 - basicLogger - INFO - Retrieving stock info at index 5000
+2022-02-19 18:34:36,777 - basicLogger - ERROR - No more messages found
+2022-02-19 18:34:36,777 - basicLogger - ERROR - Could not find BP at index 5000
+2022-02-19 18:34:48,639 - basicLogger - INFO - Retrieving stock info at index 1001
+2022-02-19 18:34:50,385 - basicLogger - INFO - returned payload with trace_id: a70bb835-bd32-4077-952e-40b4cf4313bc
+2022-02-22 14:33:59,242 - basicLogger - INFO - Retrieving stock info at index 100
+2022-02-22 14:34:00,659 - basicLogger - ERROR - No more messages found
+2022-02-22 14:34:00,660 - basicLogger - ERROR - Could not find BP at index 100
+2022-02-22 14:34:07,215 - basicLogger - INFO - Retrieving stock info at index 99
+2022-02-22 14:34:08,550 - basicLogger - INFO - returned payload with trace_id: b80d3a95-47b7-478c-a24b-59b2e1bc7d4e
+2022-02-22 14:34:14,787 - basicLogger - INFO - Retrieving stock info at index 0
+2022-02-22 14:34:16,065 - basicLogger - INFO - returned payload with trace_id: 31d9e374-27bd-4ece-b0af-88cee221eca6
+2022-02-22 14:34:48,990 - basicLogger - INFO - Retrieving date range at index 100
+2022-02-22 14:34:50,261 - basicLogger - ERROR - No more messages found
+2022-02-22 14:34:50,261 - basicLogger - ERROR - Could not find BP at index 100
+2022-02-22 14:34:55,456 - basicLogger - INFO - Retrieving date range at index 99
+2022-02-22 14:34:56,759 - basicLogger - INFO - returned payload with trace_id: 421f556c-a58d-40da-8bc8-f69f37d0a706
+2022-02-22 14:35:02,052 - basicLogger - INFO - Retrieving date range at index 5
+2022-02-22 14:35:03,326 - basicLogger - INFO - returned payload with trace_id: 8270f4c8-7b74-4ce8-8623-6c2ce3888a31
