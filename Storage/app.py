@@ -11,7 +11,6 @@ from sqlalchemy.orm import sessionmaker
 from base import Base
 from dateRange import DateRange
 from stockNumber import StockNumber
-import create_database_mysql
 import yaml
 import logging
 import logging.config
