@@ -4,8 +4,8 @@ datastore:
 scheduler: 
   period_sec: 5 
 statstore:
-  url: http://localhost:8100/stats
+  url: http://acit3855-kafka.eastus2.cloudapp.azure.com:8100/stats
 eventstore: 
-  url: http://localhost:8090/stockNumber?timestamp=
+  url: http://acit3855-kafka.eastus2.cloudapp.azure.com:8090/stockNumber?timestamp=
 eventstore2:
-  url: http://localhost:8090/dateRange?timestamp=
+  url: http://acit3855-kafka.eastus2.cloudapp.azure.com:8090/dateRange?timestamp=
