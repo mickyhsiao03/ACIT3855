@@ -39,17 +39,17 @@ export default function AppStats() {
 							<th>dateRange</th>
 						</tr>
 						<tr>
-							<td># BP: {stats['num_dRange']}</td>
-							<td># HR: {stats['num_stock']}</td>
+							<td>Count: {stats['num_stock']}</td>
+							<td>Count: {stats['num_dRange']}</td>
 						</tr>
 						<tr>
-							<td colspan="2">Max BP Systolic: {stats['stock_name']}</td>
+							<td colspan="2">Top Stock Name: {stats['stock_name']}</td>
 						</tr>
 						<tr>
-							<td colspan="2">Max BR Diastolic: {stats['stock_number']}</td>
+							<td colspan="2">Top Stock Number: {stats['stock_number']}</td>
 						</tr>
 						<tr>
-							<td colspan="2">Max HR: {stats['top_stock_price']}</td>
+							<td colspan="2">Top Stock Price: {stats['top_stock_price']}</td>
 						</tr>
 					</tbody>
                 </table>
