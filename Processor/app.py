@@ -50,10 +50,11 @@ def populate():
     else:
         timestamp = datetime.strptime(read_list[len(read_list)-1]['last_updated'], "%Y-%m-%dT%H:%M:%S").strftime("%Y-%m-%d %H:%M:%S.%f")
 
+    current_timestamp = datetime.strptime(str(datetime.now()),"%Y-%m-%d %H:%M:%S.%f").strftime("%Y-%m-%dT%H:%M:%S") 
     #get data from storage service
     headers = {"content-type": "application/json"}
     stock_response = requests.get(app_config['eventstore']['url']+timestamp, headers=headers)
-    dRange_response = requests.get(app_config['eventstore2']['url']+timestamp, headers=headers)
+    dRange_response = requests.get(app_config['eventstore2']['url']+timestamp+"&end_timestamp="+current_timestamp, headers=headers)
 
     if stock_response.status_code != 200:
         logger.debug('Did not get response from stockNumber')
@@ -87,7 +88,7 @@ def populate():
                         latest['top_stock_price'], 
                         latest['top_stock_number'], 
                         latest['top_stock_name'], 
-                        datetime.now()) 
+                        current_timestamp) 
             session.add(results_list) 
             session.commit() 
             session.close()
@@ -127,7 +128,7 @@ def populate():
                     top_stock_price[0], 
                     top_stock_number, 
                     top_stock_name, 
-                    datetime.now()) 
+                    current_timestamp) 
         session.add(results_list)  
         session.commit() 
         session.close()

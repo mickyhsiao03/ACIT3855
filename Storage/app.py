@@ -18,6 +18,7 @@ import requests
 from pykafka import KafkaClient
 from pykafka.common import OffsetType
 from threading import Thread
+from sqlalchemy import and_
 
 with open('./app_conf.yml', 'r') as f: 
     app_config = yaml.safe_load(f.read())
@@ -90,15 +91,19 @@ def getTimeFrame(body):
     
     return NoContent, 201
 
-def get_stock_number(timestamp): 
+def get_stock_number(timestamp, end_timestamp): 
     """ Gets new stock info after the timestamp """ 
  
     session = DB_SESSION() 
  
     timestamp_datetime = timestamp 
+
+    end_timestamp_datetime = end_timestamp
    
  
-    readings = session.query(StockNumber).filter(StockNumber.date_created >= timestamp_datetime) 
+    readings = session.query(StockNumber).filter(
+        and_(StockNumber.date_created >= timestamp_datetime,
+        StockNumber.date_created < end_timestamp_datetime) )
  
     results_list = [] 
  
@@ -115,15 +120,18 @@ def get_stock_number(timestamp):
  
     return results_list, 200
 
-def get_date_range(timestamp): 
+def get_date_range(timestamp, end_timestamp): 
     """ Gets new date ranges after the timestamp """ 
  
     session = DB_SESSION() 
  
     timestamp_datetime = timestamp
-   
+    
+    end_timestamp_datetime = end_timestamp
  
-    readings = session.query(DateRange).filter(DateRange.date_created >= timestamp_datetime) 
+    readings = session.query(DateRange).filter(
+        and_(DateRange.date_created >= timestamp_datetime,
+        DateRange.date_created < end_timestamp_datetime) ) 
  
     results_list = [] 
  
