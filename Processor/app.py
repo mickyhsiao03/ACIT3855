@@ -19,7 +19,7 @@ from stats import Stats as Stats
 from apscheduler.schedulers.background import BackgroundScheduler
 from flask_cors import CORS, cross_origin
 
-with open('app_conf.yml', 'r') as f: 
+with open('./app_conf.yml', 'r') as f: 
     app_config = yaml.safe_load(f.read())
 with open('log_conf.yml', 'r') as f: 
     log_config = yaml.safe_load(f.read())
@@ -53,7 +53,7 @@ def populate():
     current_timestamp = datetime.strptime(str(datetime.now()),"%Y-%m-%d %H:%M:%S.%f").strftime("%Y-%m-%dT%H:%M:%S") 
     #get data from storage service
     headers = {"content-type": "application/json"}
-    stock_response = requests.get(app_config['eventstore']['url']+timestamp, headers=headers)
+    stock_response = requests.get(app_config['eventstore']['url']+timestamp+"&end_timestamp="+current_timestamp, headers=headers)
     dRange_response = requests.get(app_config['eventstore2']['url']+timestamp+"&end_timestamp="+current_timestamp, headers=headers)
 
     if stock_response.status_code != 200:
