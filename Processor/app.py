@@ -102,40 +102,68 @@ def populate():
 
         #get top stock price, stock number, name
         top_stock_price = []
-        for i in stock_received:
-            top_stock_price.append(i['stock_Price'])
-            logger.debug('stockNumber response processed, trace_id: %s' % (i['trace_id']))
-            for price in top_stock_price:
-                if price == i['stock_Price']:
-                    top_stock_name = i['stock_Name']
-                    top_stock_number = i['stock_Number']
-        top_stock_price.sort(reverse=True)
 
-        for i in dRange_received:
-            logger.debug('dateRange response processed, trace_id: %s' % (i['trace_id']))
+        if num_stock == 0:
+            for i in dRange_received:
+                logger.debug('dateRange response processed, trace_id: %s' % (i['trace_id']))
 
-        readings = session.query(Stats)
-        read_list = [] 
-    
-        for reading in readings: 
-            read_list.append(reading.to_dict())
-
-        latest = read_list[len(read_list)-1]
+            readings = session.query(Stats)
+            read_list = [] 
         
-        #input into SQLite
-        results_list= Stats(latest['num_stock']+num_stock, 
-                    latest['num_dRange']+num_dRange, 
-                    top_stock_price[0], 
-                    top_stock_number, 
-                    top_stock_name, 
-                    current_timestamp) 
-        session.add(results_list)  
-        session.commit() 
-        session.close()
+            for reading in readings: 
+                read_list.append(reading.to_dict())
+
+            latest = read_list[len(read_list)-1]
+            
+            #input into SQLite
+            results_list= Stats(latest['num_stock']+num_stock, 
+                        latest['num_dRange']+num_dRange, 
+                        latest['top_stock_price'], 
+                        latest['top_stock_number'], 
+                        latest['top_stock_name'], 
+                        current_timestamp) 
+            session.add(results_list)  
+            session.commit() 
+            session.close()
+            
+            logger.debug('updated this period: number of stockNumber response: %d, number of dateRange response: %d, top stock price: %d, stock name: %s, stock number: %s' 
+            % (num_stock, num_dRange, top_stock_price[0], top_stock_name, top_stock_number))
+            logger.debug('periodic processing ended')
+        else:
+            for i in stock_received:
+                top_stock_price.append(i['stock_Price'])
+                logger.debug('stockNumber response processed, trace_id: %s' % (i['trace_id']))
+                for price in top_stock_price:
+                    if price == i['stock_Price']:
+                        top_stock_name = i['stock_Name']
+                        top_stock_number = i['stock_Number']
+            top_stock_price.sort(reverse=True)
+
+            for i in dRange_received:
+                logger.debug('dateRange response processed, trace_id: %s' % (i['trace_id']))
+
+            readings = session.query(Stats)
+            read_list = [] 
         
-        logger.debug('updated this period: number of stockNumber response: %d, number of dateRange response: %d, top stock price: %d, stock name: %s, stock number: %s' 
-        % (num_stock, num_dRange, top_stock_price[0], top_stock_name, top_stock_number))
-        logger.debug('periodic processing ended')
+            for reading in readings: 
+                read_list.append(reading.to_dict())
+
+            latest = read_list[len(read_list)-1]
+            
+            #input into SQLite
+            results_list= Stats(latest['num_stock']+num_stock, 
+                        latest['num_dRange']+num_dRange, 
+                        top_stock_price[0], 
+                        top_stock_number, 
+                        top_stock_name, 
+                        current_timestamp) 
+            session.add(results_list)  
+            session.commit() 
+            session.close()
+            
+            logger.debug('updated this period: number of stockNumber response: %d, number of dateRange response: %d, top stock price: %d, stock name: %s, stock number: %s' 
+            % (num_stock, num_dRange, top_stock_price[0], top_stock_name, top_stock_number))
+            logger.debug('periodic processing ended')
 
     return NoContent, 200
 
