@@ -75,7 +75,7 @@ def populate():
             read_list.append(reading.to_dict())
 
         if len(read_list) == 0:
-            results_list= Stats(0, 0, 0, "", "", datetime.now())
+            results_list= Stats(0, 0, 0, "", "", current_timestamp)
             session.add(results_list) 
             session.commit() 
             session.close()
