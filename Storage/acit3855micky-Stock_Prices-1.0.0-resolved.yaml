@@ -16,23 +16,6 @@ tags:
   description: Operations available to any investor
 paths:
   /stockNumber:
-  #   post:
-  #     tags:
-  #     - investors
-  #     summary: input a stock number
-  #     description: Readies the stock number to be sent to 3rd party API to request for historic stock prices if stock number is valid
-  #     operationId: app.getStockNum
-  #     requestBody:
-  #       description: Stock Number to add
-  #       content:
-  #         application/json:
-  #           schema:
-  #             $ref: '#/components/schemas/stockNumber'
-  #     responses:
-  #       "200":
-  #         description: Stock Number confirmed valid
-  #       "400":
-  #         description: Unknown Stock Number
     get: 
       tags: 
         - investors 
@@ -73,23 +56,6 @@ paths:
                   message: 
                     type: string
   /dateRange:
-  #   post:
-  #     tags:
-  #     - investors
-  #     summary: input a date range
-  #     description: save time frame specified
-  #     operationId: app.getTimeFrame
-  #     requestBody:
-  #       description: Time frame to add
-  #       content:
-  #         application/json:
-  #           schema:
-  #             $ref: '#/components/schemas/dateRange'
-  #     responses:
-  #       "201":
-  #         description: time frame recorded
-  #       "400":
-  #         description: invalid/ unavailable time frame
     get: 
       tags: 
         - investors 
