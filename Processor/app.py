@@ -50,7 +50,7 @@ def populate():
     else:
         timestamp = datetime.strptime(read_list[len(read_list)-1]['last_updated'], "%Y-%m-%dT%H:%M:%S").strftime("%Y-%m-%d %H:%M:%S.%f")
 
-    current_timestamp = datetime.strptime(str(datetime.now()),"%Y-%m-%d %H:%M:%S.%f").strftime("%Y-%m-%dT%H:%M:%S") 
+    current_timestamp = datetime.strptime(str(datetime.now()),"%Y-%m-%dT%H:%M:%S").strftime("%Y-%m-%d %H:%M:%S.%f") 
     #get data from storage service
     headers = {"content-type": "application/json"}
     stock_response = requests.get(app_config['eventstore']['url']+timestamp+"&end_timestamp="+current_timestamp, headers=headers)
