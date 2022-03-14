@@ -127,7 +127,7 @@ def populate():
             session.close()
             
             logger.debug('updated this period: number of stockNumber response: %d, number of dateRange response: %d, top stock price: %d, stock name: %s, stock number: %s' 
-            % (num_stock, num_dRange, top_stock_price[0], top_stock_name, top_stock_number))
+            % (num_stock, num_dRange, latest['top_stock_price'], latest['top_stock_name'], latest['top_stock_number']))
             logger.debug('periodic processing ended')
         else:
             for i in stock_received:
