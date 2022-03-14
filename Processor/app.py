@@ -93,7 +93,7 @@ def populate():
             session.commit() 
             session.close()
             logger.debug('nothing added, last_updated updated, ending periodic processing')
-
+        return NoContent, 200
 
     else:
         #get number of events
@@ -129,6 +129,8 @@ def populate():
             logger.debug('updated this period: number of stockNumber response: %d, number of dateRange response: %d, top stock price: %d, stock name: %s, stock number: %s' 
             % (num_stock, num_dRange, latest['top_stock_price'], latest['top_stock_name'], latest['top_stock_number']))
             logger.debug('periodic processing ended')
+            return NoContent, 200
+
         else:
             for i in stock_received:
                 top_stock_price.append(i['stock_Price'])
