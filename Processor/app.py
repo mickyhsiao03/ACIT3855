@@ -80,6 +80,7 @@ def populate():
             session.commit() 
             session.close()
             logger.debug('nothing added, last_updated updated, ending periodic processing')
+            return NoContent
         else:
             latest = read_list[len(read_list)-1]
 
@@ -93,7 +94,7 @@ def populate():
             session.commit() 
             session.close()
             logger.debug('nothing added, last_updated updated, ending periodic processing')
-        return NoContent, 200
+            return NoContent, 200
 
     else:
         #get number of events
