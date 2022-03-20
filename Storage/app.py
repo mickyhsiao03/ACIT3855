@@ -97,9 +97,9 @@ def get_stock_number(timestamp, end_timestamp):
  
     session = DB_SESSION() 
  
-    timestamp_datetime = datetime.strptime(timestamp, "%Y-%m-%dT%H:%M:%S")
+    timestamp_datetime = timestamp
     
-    end_timestamp_datetime = datetime.strptime(end_timestamp, "%Y-%m-%dT%H:%M:%S")
+    end_timestamp_datetime = end_timestamp
    
  
     readings = session.query(StockNumber).filter(
@@ -126,9 +126,9 @@ def get_date_range(timestamp, end_timestamp):
  
     session = DB_SESSION() 
  
-    timestamp_datetime = datetime.strptime(timestamp, "%Y-%m-%dT%H:%M:%S")
+    timestamp_datetime = timestamp
     
-    end_timestamp_datetime = datetime.strptime(end_timestamp, "%Y-%m-%dT%H:%M:%S")
+    end_timestamp_datetime = end_timestamp
  
     readings = session.query(DateRange).filter(
         and_(DateRange.date_created >= timestamp_datetime,
