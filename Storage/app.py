@@ -20,6 +20,7 @@ from pykafka.common import OffsetType
 from threading import Thread
 from sqlalchemy import and_
 from datetime import datetime
+from time import sleep
 
 with open('./app_conf.yml', 'r') as f: 
     app_config = yaml.safe_load(f.read())
@@ -148,10 +149,24 @@ def get_date_range(timestamp, end_timestamp):
     return results_list, 200
 
 def process_messages(): 
+    retry_count = 0
     """ Process event messages """ 
     hostname = "%s:%d" % (app_config["events"]["hostname"],   
                           app_config["events"]["port"]) 
-    client = KafkaClient(hosts=hostname) 
+
+    while retry_count < 10:
+        try:
+            logger.info('trying to connect, attemp: %d' % (retry_count))
+            client = KafkaClient(hosts=hostname) 
+        except:
+            logger.info('attempt %d failed, retry in 5 seoncds' % (retry_count))
+            retry_count += 1
+            sleep(5)
+        else:
+            break
+    
+    logger.info('connected to kafka')
+
     topic = client.topics[str.encode(app_config["events"]["topic"])] 
      
     # Create a consume on a consumer group, that only reads new messages  
