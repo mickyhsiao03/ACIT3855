@@ -31,6 +31,6 @@ class Stats(Base):
         dict['top_stock_price'] = self.top_stock_price
         dict['top_stock_number'] = self.top_stock_number
         dict['top_stock_name'] = self.top_stock_name
-        dict['last_updated'] = datetime.strptime(str(self.last_updated),"%Y-%m-%d %H:%M:%S.%f").strftime("%Y-%m-%dT%H:%M:%S") 
+        dict['last_updated'] = self.last_updated
  
         return dict
