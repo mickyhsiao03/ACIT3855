@@ -56,6 +56,8 @@ def populate():
     stock_response = requests.get(app_config['eventstore']['url']+timestamp+"&end_timestamp="+current_timestamp, headers=headers)
     dRange_response = requests.get(app_config['eventstore2']['url']+timestamp+"&end_timestamp="+current_timestamp, headers=headers)
 
+    logger.debug('last updated: %s, current (end) timestamp: %s' %(timestamp, current_timestamp))
+
     if stock_response.status_code != 200:
         logger.debug('Did not get response from stockNumber')
     if dRange_response.status_code != 200:
