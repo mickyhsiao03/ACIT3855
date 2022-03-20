@@ -114,8 +114,8 @@ def get_stock_number(timestamp, end_timestamp):
  
     session.close() 
      
-    logger.info("Query for stock number info after %s returns %d results" %  
-                (timestamp, len(results_list))) 
+    logger.info("Query for stock number info after %s and before %s returns %d results" %  
+                (timestamp, end_timestamp, len(results_list))) 
 
     
  
@@ -141,8 +141,8 @@ def get_date_range(timestamp, end_timestamp):
  
     session.close() 
      
-    logger.info("Query for date ranges after %s returns %d results" %  
-                (timestamp, len(results_list))) 
+    logger.info("Query for date ranges after %s and before %s returns %d results" %  
+                (timestamp, end_timestamp, len(results_list))) 
 
  
     return results_list, 200
