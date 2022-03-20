@@ -11,6 +11,7 @@ import logging
 import logging.config
 import uuid
 from pykafka import KafkaClient
+from time import sleep
 
 logger = logging.getLogger('basicLogger')
 
@@ -21,6 +22,23 @@ with open('log_conf.yml', 'r') as f:
     log_config = yaml.safe_load(f.read()) 
     logging.config.dictConfig(log_config)
 
+retry_count = 0
+""" Process event messages """ 
+hostname = "%s:%d" % (app_config["events"]["hostname"],   
+                        app_config["events"]["port"]) 
+
+while retry_count < app_config["kafka_connect"]["retry_count"]:
+    try:
+        logger.info('trying to connect, attemp: %d' % (retry_count))
+        client = KafkaClient(hosts=hostname) 
+    except:
+        logger.info('attempt %d failed, retry in 5 seoncds' % (retry_count))
+        retry_count += 1
+        sleep(app_config["kafka_connect"]["sleep_time"])
+    else:
+        break
+
+logger.info('connected to kafka')
 
 def getStockNum(body):
     transID = str(uuid.uuid4())
@@ -30,15 +48,8 @@ def getStockNum(body):
 
     logger.info(content)
 
-    # point_data = body
-    # headers = {"content-type": "application/json"}
-    # response = requests.post(app_config['eventstore1']['url'], json=point_data, headers=headers)
-
-    # if response.status_code == 201:        
-    #     logger.info('Returned event: post stockNumber response: ' + transID + ' with status code:%d' % (response.status_code) ) 
-    # else:
-    #     logger.info('Bad request')    
-    client = KafkaClient(hosts='%s:%s' % (app_config['events']['hostname'], app_config['events']['port'])) 
+      
+    # client = KafkaClient(hosts='%s:%s' % (app_config['events']['hostname'], app_config['events']['port'])) 
     topic = client.topics[str.encode(app_config['events']['topic'])] 
     producer = topic.get_sync_producer() 
     
@@ -62,14 +73,8 @@ def getTimeFrame(body):
 
     logger.info(content)
 
-    # point_data = body
-    # headers = {"content-type": "application/json"}
-    # response = requests.post(app_config['eventstore2']['url'], json=point_data, headers=headers)    
-    # if response.status_code == 201:        
-    #     logger.info('Returned event: post dateRange response: ' + transID + ' with status code: %d' % (response.status_code) ) 
-    # else:
-    #     logger.info('Bad request')   
-    client = KafkaClient(hosts='%s:%s' % (app_config['events']['hostname'], app_config['events']['port'])) 
+      
+    # client = KafkaClient(hosts='%s:%s' % (app_config['events']['hostname'], app_config['events']['port'])) 
     topic = client.topics[str.encode(app_config['events']['topic'])] 
     producer = topic.get_sync_producer() 
     
