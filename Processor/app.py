@@ -48,7 +48,7 @@ def populate():
         timestamp = current_timestamp
 
     else:
-        timestamp = datetime.strptime(read_list[len(read_list)-1]['last_updated'], "%Y-%m-%dT%H:%M:%S").strftime("%Y-%m-%d %H:%M:%S.%f")
+        timestamp = datetime.strptime(read_list[len(read_list)-1]['last_updated'], "%Y-%m-%d %H:%M:%S.%f").strftime("%Y-%m-%d %H:%M:%S.%f")
 
 
     #get data from storage service
