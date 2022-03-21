@@ -190,10 +190,30 @@ def process_messages():
             # Store the event1 (i.e., the payload) to the DB 
             store_stock_number(payload)
             logger.info('payload stored. msg type: %s, trace id: %s' % (msg['type'], payload['trace_id']))
+            while retry_count < app_config["kafka_connect"]["retry_count"]:
+                try:
+                    logger.info('trying to connect, attemp: %d' % (retry_count))
+                    client = KafkaClient(hosts=hostname) 
+                except:
+                    logger.info('attempt %d failed, retry in 5 seoncds' % (retry_count))
+                    retry_count += 1
+                    sleep(app_config["kafka_connect"]["sleep_time"])
+                else:
+                    break
         elif msg["type"] == "dateRange": # Change this to your event type 
             # Store the event2 (i.e., the payload) to the DB 
             store_date_range(payload)
             logger.info('payload stored. msg type: %s, trace_id: %s' % (msg['type'], payload['trace_id']))
+            while retry_count < app_config["kafka_connect"]["retry_count"]:
+                try:
+                    logger.info('trying to connect, attemp: %d' % (retry_count))
+                    client = KafkaClient(hosts=hostname) 
+                except:
+                    logger.info('attempt %d failed, retry in 5 seoncds' % (retry_count))
+                    retry_count += 1
+                    sleep(app_config["kafka_connect"]["sleep_time"])
+                else:
+                    break
 
         # Commit the new message as being read 
         consumer.commit_offsets()
