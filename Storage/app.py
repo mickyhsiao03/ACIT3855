@@ -215,6 +215,7 @@ def process_messages(client):
 
         # Commit the new message as being read 
         consumer.commit_offsets()
+        check_connected()
 
 
 
