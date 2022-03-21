@@ -148,7 +148,7 @@ def get_date_range(timestamp, end_timestamp):
  
     return results_list, 200
 
-def process_messages(): 
+def check_connected():
     retry_count = 0
     """ Process event messages """ 
     hostname = "%s:%d" % (app_config["events"]["hostname"],   
@@ -163,9 +163,29 @@ def process_messages():
             retry_count += 1
             sleep(app_config["kafka_connect"]["sleep_time"])
         else:
+            logger.info('connected to kafka')
             break
+
+    process_messages(client)
+
+def process_messages(client): 
+    # retry_count = 0
+    # """ Process event messages """ 
+    # hostname = "%s:%d" % (app_config["events"]["hostname"],   
+    #                       app_config["events"]["port"]) 
+
+    # while retry_count < app_config["kafka_connect"]["retry_count"]:
+    #     try:
+    #         logger.info('trying to connect, attemp: %d' % (retry_count))
+    #         client = KafkaClient(hosts=hostname) 
+    #     except:
+    #         logger.info('attempt %d failed, retry in 5 seoncds' % (retry_count))
+    #         retry_count += 1
+    #         sleep(app_config["kafka_connect"]["sleep_time"])
+    #     else:
+    #         break
     
-    logger.info('connected to kafka')
+    # logger.info('connected to kafka')
 
     topic = client.topics[str.encode(app_config["events"]["topic"])] 
      
@@ -202,7 +222,7 @@ app = connexion.FlaskApp(__name__, specification_dir='')
 app.add_api("acit3855micky-Stock_Prices-1.0.0-resolved.yaml", strict_validation=True, validate_responses=True)
 
 if __name__ == "__main__":
-    t1 = Thread(target=process_messages) 
+    t1 = Thread(target=check_connected) 
     t1.setDaemon(True) 
     t1.start()
     app.run(port=8090)
