@@ -31,6 +31,8 @@ while retry_count < app_config["kafka_connect"]["retry_count"]:
     try:
         logger.info('trying to connect, attemp: %d' % (retry_count))
         client = KafkaClient(hosts=hostname) 
+        topic = client.topics[str.encode(app_config['events']['topic'])] 
+        producer = topic.get_sync_producer() 
     except:
         logger.info('attempt %d failed, retry in 5 seoncds' % (retry_count))
         retry_count += 1
@@ -48,10 +50,6 @@ def getStockNum(body):
 
     logger.info(content)
 
-      
-    # client = KafkaClient(hosts='%s:%s' % (app_config['events']['hostname'], app_config['events']['port'])) 
-    topic = client.topics[str.encode(app_config['events']['topic'])] 
-    producer = topic.get_sync_producer() 
     
     msg = { "type": "stockNumber",  
             "datetime" :    
@@ -73,10 +71,6 @@ def getTimeFrame(body):
 
     logger.info(content)
 
-      
-    # client = KafkaClient(hosts='%s:%s' % (app_config['events']['hostname'], app_config['events']['port'])) 
-    topic = client.topics[str.encode(app_config['events']['topic'])] 
-    producer = topic.get_sync_producer() 
     
     msg = { "type": "dateRange",  
             "datetime" :    
