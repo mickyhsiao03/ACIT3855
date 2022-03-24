@@ -43,6 +43,7 @@ hostname = "%s:%d" % (app_config["events"]["hostname"],
 while retry_count < app_config["kafka_connect"]["retry_count"]:
     try:
         logger.info('trying to connect, attemp: %d' % (retry_count))
+        print(hostname)
         client = KafkaClient(hosts=hostname) 
         topic = client.topics[str.encode(app_config['events']['topic'])] 
         producer = topic.get_sync_producer() 
