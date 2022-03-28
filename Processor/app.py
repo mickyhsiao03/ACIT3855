@@ -18,6 +18,7 @@ from base import Base
 from stats import Stats as Stats
 from apscheduler.schedulers.background import BackgroundScheduler
 from flask_cors import CORS, cross_origin
+import create_tables
 
 if "TARGET_ENV" in os.environ and os.environ["TARGET_ENV"] == "test":
     print("In Test Environment")
@@ -40,6 +41,10 @@ logger = logging.getLogger('basicLogger')
 
 logger.info("App Conf File: %s" % app_conf_file)
 logger.info("Log Conf File: %s" % log_conf_file)
+
+if not path.exists(app_config["datastore"]["filename"]):
+    create_tables
+    print('created db')
 
 DB_ENGINE = create_engine("sqlite:///%s" % (app_config["datastore"]["filename"]))
 Base.metadata.bind = DB_ENGINE 
