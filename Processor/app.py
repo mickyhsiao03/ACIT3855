@@ -47,7 +47,7 @@ def create_tables():
     
     c = conn.cursor() 
     c.execute(''' 
-            CREATE TABLE stats 
+            CREATE TABLE IF NOT EXISTS stats 
             (id INTEGER PRIMARY KEY ASC,  
             num_stock INTEGER, 
             num_dRange INTEGER, 
