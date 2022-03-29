@@ -9,7 +9,7 @@ export default function EndpointAudit(props) {
     const [index, setIndex] = useState(null); //state for index
 
     const getAudit = () => {
-        fetch(`http://acit3855-kafka.eastus2.cloudapp.azure.com:8200/${props.endpoint}?index=${rand_val}`)
+        fetch(`http://acit3855-kafka.eastus2.cloudapp.azure.com/audit/${props.endpoint}?index=${rand_val}`)
             .then(res => res.json())
             .then((result)=>{
 				console.log("Received Audit Results for " + props.endpoint)
