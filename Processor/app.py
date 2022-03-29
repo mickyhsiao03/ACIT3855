@@ -18,7 +18,7 @@ from base import Base
 from stats import Stats as Stats
 from apscheduler.schedulers.background import BackgroundScheduler
 from flask_cors import CORS, cross_origin
-import create_tables
+
 
 if "TARGET_ENV" in os.environ and os.environ["TARGET_ENV"] == "test":
     print("In Test Environment")
@@ -42,8 +42,27 @@ logger = logging.getLogger('basicLogger')
 logger.info("App Conf File: %s" % app_conf_file)
 logger.info("Log Conf File: %s" % log_conf_file)
 
+import sqlite3 
+def create_tables():
+    conn = sqlite3.connect('/data/data.sqlite') 
+    
+    c = conn.cursor() 
+    c.execute(''' 
+            CREATE TABLE stats 
+            (id INTEGER PRIMARY KEY ASC,  
+            num_stock INTEGER, 
+            num_dRange INTEGER, 
+            top_stock_price INTEGER NOT NULL, 
+            top_stock_number VARCHAR(50) NOT NULL, 
+            top_stock_name VARCHAR(50) NOT NULL, 
+            last_updated VARCHAR(100) NOT NULL) 
+            ''') 
+    
+    conn.commit() 
+    conn.close()
+
 if not path.exists(app_config["datastore"]["filename"]):
-    create_tables
+    create_tables()
     print('created db')
 
 DB_ENGINE = create_engine("sqlite:///%s" % (app_config["datastore"]["filename"]))
@@ -225,6 +244,8 @@ def init_scheduler():
                   'interval', 
                   seconds=app_config['scheduler']['period_sec']) 
     sched.start()
+
+
 
 app = connexion.FlaskApp(__name__, specification_dir='')
 CORS(app.app) 
