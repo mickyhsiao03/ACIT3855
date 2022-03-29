@@ -64,7 +64,7 @@ if not path.exists(app_config["datastore"]["filename"]):
     create_tables()
     print('created db')
 
-DB_ENGINE = create_engine("sqlite://%s" % (app_config["datastore"]["filename"]))
+DB_ENGINE = create_engine("sqlite:///%s" % (app_config["datastore"]["filename"]))
 Base.metadata.bind = DB_ENGINE 
 DB_SESSION = sessionmaker(bind=DB_ENGINE)
 
