@@ -42,6 +42,12 @@ logger = logging.getLogger('basicLogger')
 logger.info("App Conf File: %s" % app_conf_file)
 logger.info("Log Conf File: %s" % log_conf_file)
 
+
+
+DB_ENGINE = create_engine("sqlite:///%s" % (app_config["datastore"]["filename"]))
+Base.metadata.bind = DB_ENGINE 
+DB_SESSION = sessionmaker(bind=DB_ENGINE)
+
 def create_tables():
     conn = sqlite3.connect('/data/data.sqlite') 
     
@@ -63,11 +69,6 @@ def create_tables():
 if not path.exists(app_config["datastore"]["filename"]):
     create_tables()
     print('created db')
-
-DB_ENGINE = create_engine("sqlite:///%s" % (app_config["datastore"]["filename"]))
-Base.metadata.bind = DB_ENGINE 
-DB_SESSION = sessionmaker(bind=DB_ENGINE)
-
 
 def populate():
     logger.info('periodic processing started.')
