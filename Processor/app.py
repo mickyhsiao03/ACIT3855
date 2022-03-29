@@ -42,7 +42,6 @@ logger = logging.getLogger('basicLogger')
 logger.info("App Conf File: %s" % app_conf_file)
 logger.info("Log Conf File: %s" % log_conf_file)
 
-import sqlite3 
 def create_tables():
     conn = sqlite3.connect('/data/data.sqlite') 
     
@@ -65,7 +64,7 @@ if not path.exists(app_config["datastore"]["filename"]):
     create_tables()
     print('created db')
 
-DB_ENGINE = create_engine("sqlite:///%s" % (app_config["datastore"]["filename"]))
+DB_ENGINE = create_engine("sqlite://%s" % (app_config["datastore"]["filename"]))
 Base.metadata.bind = DB_ENGINE 
 DB_SESSION = sessionmaker(bind=DB_ENGINE)
 
