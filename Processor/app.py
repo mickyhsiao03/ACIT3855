@@ -248,9 +248,13 @@ def init_scheduler():
 
 
 app = connexion.FlaskApp(__name__, specification_dir='')
-CORS(app.app) 
-app.app.config['CORS_HEADERS'] = 'Content-Type' 
-app.add_api("acit3855micky-Stock_Prices-1.0.0-resolved.yaml", strict_validation=True, validate_responses=True)
+
+if "TARGET_ENV" not in os.environ or os.environ["TARGET_ENV"] != "test":
+    CORS(app.app) 
+    app.app.config['CORS_HEADERS'] = 'Content-Type' 
+    
+
+app.add_api("acit3855micky-Stock_Prices-1.0.0-resolved.yaml", base_path="/processing", strict_validation=True, validate_responses=True)
 
 if __name__ == "__main__":
         init_scheduler()
