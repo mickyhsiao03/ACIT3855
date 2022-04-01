@@ -245,7 +245,10 @@ def init_scheduler():
                   seconds=app_config['scheduler']['period_sec']) 
     sched.start()
 
+def health():
+    logger.info('Audit service is running')
 
+    return NoContent, 200
 
 app = connexion.FlaskApp(__name__, specification_dir='')
 

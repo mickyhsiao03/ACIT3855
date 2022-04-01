@@ -7,6 +7,12 @@ info:
   contact:
     email: mhsiao6@my.bcit.ca
 paths:
+  /health:
+    get:
+      operationId: app.health
+      responses:
+        '200':
+          description: audit service is running.
   /stockNumber:
     get: 
       tags: 

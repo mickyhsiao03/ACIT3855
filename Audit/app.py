@@ -108,6 +108,10 @@ def get_date_range_Q(index):
     return { "message": "Not Found"}, 404
 
 
+def health():
+    logger.info('Audit service is running')
+    return NoContent, 200
+
 app = connexion.FlaskApp(__name__, specification_dir='')
 
 if "TARGET_ENV" not in os.environ or os.environ["TARGET_ENV"] != "test":
