@@ -99,6 +99,7 @@ services:
     volumes:
       - /home/azureuser/config/audit:/config
       - /home/azureuser/logs:/logs
+
   dashboard: 
     image: dashboard 
     ports: 
@@ -108,6 +109,19 @@ services:
     depends_on: 
       - "processing" 
       - "audit"
+
+  health: 
+      image: health
+      ports: 
+        - "8300" 
+      networks:
+        - "api.network"
+      depends_on:
+        - "receiver"
+        - "storage"
+        - "processing"
+        - "audit"
+        - "dashboard"
 
   nginx:
     image: nginx:latest
