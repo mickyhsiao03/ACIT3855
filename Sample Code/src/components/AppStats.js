@@ -83,13 +83,13 @@ export default function AppStats() {
 							<td colspan="2">Storage: {health['storage']}</td>
 						</tr>
 						<tr>
-							<td colspan="2">Processing {health['processing']}</td>
+							<td colspan="2">Processing: {health['processing']}</td>
 						</tr>
                         <tr>
-							<td colspan="2">Audit {health['audit']}</td>
+							<td colspan="2">Audit: {health['audit']}</td>
 						</tr>
                         <tr>
-							<td colspan="2">Last Updated: {stats['last_updated']}</td>
+							<td colspan="2">Last Updated: {health['last_updated']}</td>
 						</tr>
 					</tbody>
                 </table>
