@@ -160,7 +160,7 @@ def get_health():
     latest = read_list[len(read_list)-1]
  
     pydict = {'receiver:': latest['receiver'], 'storage': latest['storage'],
-    'processing': latest['processing'], 'audit': latest['audit']
+    'processing': latest['processing'], 'audit': latest['audit'], 'last_update': latest['last_updated']
     }
 
     logger.debug(pydict)
