@@ -49,7 +49,7 @@ Base.metadata.bind = DB_ENGINE
 DB_SESSION = sessionmaker(bind=DB_ENGINE)
 
 def create_tables():
-    conn = sqlite3.connect('/data/data.sqlite') 
+    conn = sqlite3.connect('/data/health.sqlite') 
     
     c = conn.cursor() 
     c.execute(''' 
