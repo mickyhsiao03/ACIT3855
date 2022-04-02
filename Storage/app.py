@@ -215,7 +215,10 @@ def process_messages():
         consumer.commit_offsets()
 
 
+def health():
+    logger.info('Storage service is running')
 
+    return NoContent, 200
 
 app = connexion.FlaskApp(__name__, specification_dir='')
 app.add_api("acit3855micky-Stock_Prices-1.0.0-resolved.yaml", base_path="/storage", strict_validation=True, validate_responses=True)

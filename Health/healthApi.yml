@@ -15,26 +15,20 @@ tags:
 - name: investors
   description: Operations available to any investor
 paths:
-  /health:
-    get:
-      operationId: app.health
-      responses:
-        '200':
-          description: service is running.
-  /stats: 
+  /health_status: 
     get: 
-      summary: Gets the event stats 
-      operationId: app.get_stats
-      description: Gets top stock price processsed statistics 
+      summary: Gets the health status
+      operationId: app.get_health
+      description: Gets health of services
       responses: 
         '200': 
-          description: Successfully returned a list of top stock prices
+          description: Successfully returned health status
           content: 
             application/json: 
               schema: 
                 type: object 
                 items: 
-                  $ref: '#/components/schemas/ReadingStats' 
+                  $ref: '#/components/schemas/healthStats' 
         '400': 
           description: Invalid request 
           content: 
@@ -46,31 +40,26 @@ paths:
                     type: string
 components:
   schemas:
-    ReadingStats: 
+    healthStats: 
       required: 
-      - num_stock
-      - num_dRange
-      - top_stock_price
-      - top_stock_number
-      - top_stock_name
+      - receiver
+      - storage
+      - processing
+      - audit
       - last_updated   
       properties: 
-        num_stock: 
-          type: integer 
-          example: 50000 
-        num_dRange: 
-          type: integer 
-          example: 40000
-        top_stock_price: 
-          type: integer 
-          example: 30000 
-        top_stock_number: 
+        receiver: 
           type: string 
-          example: APPL2 
-        top_stock_name: 
+          example: Running
+        storage: 
           type: string 
-          example: Apple Inc 2
+          example: Running
+        processing: 
+          type: string 
+          example: Running
+        audit: 
+          type: string 
+          example: Down
         last_updated:
           type: string
           example: '2022-02-12 16:35:17.839066'
-        

@@ -246,7 +246,7 @@ def init_scheduler():
     sched.start()
 
 def health():
-    logger.info('Audit service is running')
+    logger.info('Processing service is running')
 
     return NoContent, 200
 

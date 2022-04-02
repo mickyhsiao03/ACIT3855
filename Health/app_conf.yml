@@ -1,0 +1,13 @@
+version: 1 
+datastore: 
+  filename: /data/data.sqlite 
+scheduler: 
+  period_sec: 5
+receiverHealth: 
+  url: http://acit3855-kafka.eastus2.cloudapp.azure.com/receiver/health
+storageHealth: 
+  url: http://acit3855-kafka.eastus2.cloudapp.azure.com/storage/health
+processingHealth: 
+  url: http://acit3855-kafka.eastus2.cloudapp.azure.com/processing/health
+auditHealth: 
+  url: http://acit3855-kafka.eastus2.cloudapp.azure.com/audit/health

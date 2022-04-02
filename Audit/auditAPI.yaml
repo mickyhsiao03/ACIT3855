@@ -12,7 +12,7 @@ paths:
       operationId: app.health
       responses:
         '200':
-          description: audit service is running.
+          description: service is running.
   /stockNumber:
     get: 
       tags: 

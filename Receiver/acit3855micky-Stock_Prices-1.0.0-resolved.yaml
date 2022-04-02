@@ -15,6 +15,12 @@ tags:
 - name: investors
   description: Operations available to any investor
 paths:
+  /health:
+    get:
+      operationId: app.health
+      responses:
+        '200':
+          description: service is running.
   /stockNumber:
     post:
       tags:
