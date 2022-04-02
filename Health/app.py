@@ -125,7 +125,6 @@ def populate():
         logger.debug('Audit down')
 
 
-    latest = read_list[len(read_list)-1]
     
     #input into SQLite
     results_list= Health(receiver_status, 
