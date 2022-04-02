@@ -42,7 +42,37 @@ export default function AppStats() {
 		return() => clearInterval(interval);
     }, [getHealth]);
 
-    if (isLoaded === false){
+    if (error){
+        return (
+        <div className={"error"}>
+            <p>Error found when fetching from API</p>
+            <table className={"StatsTable"}>
+                <tbody>
+                    <tr>
+                        <th>Service Status</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Receiver: {health['receiver']}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Storage: {health['storage']}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Processing: {health['processing']}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Audit: {health['audit']}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Last Updated: {health['last_updated']}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+                
+        )
+    }
+    else if (isLoaded === false){
         return(<div>Loading...</div>)
     } 
     else if (isLoaded === true){
@@ -100,34 +130,5 @@ export default function AppStats() {
             </div>
         )
     }
-    else if (error){
-        return (
-        <div className={"error"}>
-            <p>Error found when fetching from API</p>
-            <table className={"StatsTable"}>
-                <tbody>
-                    <tr>
-                        <th>Service Status</th>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Receiver: {health['receiver']}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Storage: {health['storage']}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Processing: {health['processing']}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Audit: {health['audit']}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Last Updated: {health['last_updated']}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-                
-        )
-    }
+    
 }
