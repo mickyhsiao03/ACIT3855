@@ -42,11 +42,10 @@ export default function AppStats() {
 		return() => clearInterval(interval);
     }, [getHealth]);
 
-    if (error){
-        return (<div className={"error"}>Error found when fetching from API</div>)
-    } else if (isLoaded === false){
+    if (isLoaded === false){
         return(<div>Loading...</div>)
-    } else if (isLoaded === true){
+    } 
+    else if (isLoaded === true){
         return(
             <div>
                 <h1>Latest Stats</h1>
@@ -93,9 +92,42 @@ export default function AppStats() {
 						</tr>
 					</tbody>
                 </table>
+        
+                
+                
                 {/* <h3>Last Updated: {stats['last_updated']}</h3> */}
 
             </div>
+        )
+    }
+    else if (error){
+        return (
+        <div className={"error"}>
+            <p>Error found when fetching from API</p>
+            <table className={"StatsTable"}>
+                <tbody>
+                    <tr>
+                        <th>Service Status</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Receiver: {health['receiver']}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Storage: {health['storage']}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Processing: {health['processing']}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Audit: {health['audit']}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Last Updated: {health['last_updated']}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+                
         )
     }
 }
