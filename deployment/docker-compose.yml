@@ -44,7 +44,7 @@ services:
     volumes: 
       - my-db:/var/lib/mysql 
   receiver:
-    image: receiver
+    image: mickyhsiao/receiver:receiverService
     ports:
       - "8080"
     networks:
@@ -58,7 +58,7 @@ services:
       - "kafka"
 
   storage:
-    image: storage
+    image: mickyhsiao/storage:storageService
     ports:
       - "8090"
     networks:
@@ -72,7 +72,7 @@ services:
       - "kafka"
 
   processing:
-    image: processing
+    image: mickyhsiao/processor:processorService
     ports:
       - "8100"
     networks:
@@ -87,7 +87,7 @@ services:
       - processing-db:/data
 
   audit:
-    image: audit
+    image: mickyhsiao/audit:auditService
     ports:
       - "8200"
     depends_on:
