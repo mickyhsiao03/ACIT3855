@@ -44,8 +44,8 @@ export default function AppStats() {
 
     if (error){
         return (
-        <div className={"error"}>
-            <p>Error found when fetching from API</p>
+        <div>
+            <p><h1>Error found when fetching from API</h1></p>
             <table className={"StatsTable"}>
                 <tbody>
                     <tr>
