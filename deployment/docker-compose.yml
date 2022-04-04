@@ -71,7 +71,7 @@ services:
     depends_on:
       - "kafka"
 
-  processing:
+  processor:
     image: mickyhsiao/processor:processorService
     ports:
       - "8100"
