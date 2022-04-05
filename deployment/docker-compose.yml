@@ -71,7 +71,7 @@ services:
     depends_on:
       - "kafka"
 
-  processor:
+  processing:
     image: mickyhsiao/processor:processorService
     ports:
       - "8100"
@@ -107,7 +107,7 @@ services:
     networks:
       - "api.network"
     depends_on: 
-      - "processor" 
+      - "processing" 
       - "audit"
 
   health: 
@@ -121,7 +121,7 @@ services:
       depends_on:
         - "receiver"
         - "storage"
-        - "processor"
+        - "processing"
         - "audit"
         - "dashboard"
       volumes:
@@ -138,7 +138,7 @@ services:
     depends_on:
       - "receiver"
       - "storage"
-      - "processor"
+      - "processing"
       - "audit"
       - "dashboard"
     # Connects the port 80 of the nginx container to localhost:80 or localhost
