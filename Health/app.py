@@ -90,10 +90,10 @@ def populate():
 
     #get data from storage service
     headers = {"content-type": "application/json"}
-    receiver_response = requests.get(app_config['receiverHealth']['url'], headers=headers)
-    storage_response = requests.get(app_config['storageHealth']['url'], headers=headers)
-    processing_response = requests.get(app_config['processingHealth']['url'], headers=headers)
-    audit_response = requests.get(app_config['auditHealth']['url'], headers=headers)
+    receiver_response = requests.get(app_config['receiverHealth']['url'], headers=headers, timeout=5)
+    storage_response = requests.get(app_config['storageHealth']['url'], headers=headers, timeout=5)
+    processing_response = requests.get(app_config['processingHealth']['url'], headers=headers, timeout=5)
+    audit_response = requests.get(app_config['auditHealth']['url'], headers=headers, timeout=5)
 
 
     if receiver_response.status_code == 200:
